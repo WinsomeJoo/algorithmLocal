@@ -1,4 +1,5 @@
 package 스터디;
+import java.util.Scanner;
 
 /**
  앞에서 읽을 때나 뒤에서 읽을 때나 같은 문자열을 회문 문자열이라고 합니다.
@@ -6,7 +7,6 @@ package 스터디;
  단 회문을 검사할 때 대소문자를 구분하지 않습니다.
  */
 
-import java.util.Scanner;
 
 class Palindrome {
     public static void main(String[] args){
