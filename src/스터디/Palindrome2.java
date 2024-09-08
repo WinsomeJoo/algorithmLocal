@@ -11,20 +11,41 @@ public class Palindrome2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
-        String one="";
-        String two="";
-        String fullString="";
+        System.out.println(solution(input));
+    }
 
-        one=input.substring(0,input.length()/2);
-        two=input.substring(input.length()/2,input.length());
+    public static String solution(String s) {
+        String answer = "YES";
+        int lt = 0;
+        int rt = s.length() - 1;
 
+        while (lt < rt) {
+            if (s.charAt(lt) != s.charAt(rt)) {
+                String s1 = s.substring(lt, rt);
+                String s2 = s.substring(lt + 1, rt + 1);
 
-        fullString=one+two;
+                if (!isPalindrome(s1) && !isPalindrome(s2)) {
+                    answer = "NO";
+                }
+                break;
+            } else {
+                lt++;
+                rt--;
+            }
+        }
+        return answer;
+    }
 
-        StringBuilder sb = new StringBuilder(fullString);
-        if(sb.reverse().toString().equalsIgnoreCase(fullString))
-            System.out.println("YES");
-        else
-            System.out.println("NO");
+    public static boolean isPalindrome(String str) {
+        int left = 0;
+        int right = str.length() - 1;
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
     }
 }
